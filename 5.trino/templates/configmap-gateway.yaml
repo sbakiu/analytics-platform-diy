@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "trino.gateway" . }}
+  labels:
+    app: {{ template "trino.name" . }}
+    chart: {{ template "trino.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: coordinator
+data:
+  gatewayService: {{ .Values.server.prestogateway.gatewayService }}
+  gatewayPort: {{ .Values.server.prestogateway.gatewayPort | quote }}
+  proxyName: {{ template "trino.fullname" . }}
+  proxyTo: "http://{{ template "trino.fullname" . }}:{{ .Values.server.config.http.port }}"
+ 
+---

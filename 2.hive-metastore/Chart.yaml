@@ -4,3 +4,6 @@ description: A Helm chart for Hive Metastore Setup
 name: hive-metastore
 version: 1.0.0
 engine: gotpl
+maintainers:
+  - name: sbakiu
+    email: sbakiu@gmail.com

@@ -1,0 +1,12 @@
+apiVersion: v1
+appVersion: 354
+description: Distributed SQL query engine for running interactive analytic queries
+name: trino
+version: "1.0.0"
+home: https://trino.io
+icon: https://trino.io
+sources:
+  - https://github.com/trinodb/trino
+maintainers:
+  - name: sbakiu
+    email: sbakiu@gmail.com

@@ -11,10 +11,13 @@ cd ../docker-hive-metastore
 docker build -t localhost:5000/hive-metastore:3.2.2 .
 cd ../docker-hive-server2
 docker build -t localhost:5000/hive-server2:3.2.2 .
+cd ../docker-trino
+docker build -t localhost:5000/trino:354 .
 cd ..
 
 docker push localhost:5000/hive-metastore:3.2.2
 docker push localhost:5000/hive-server2:3.2.2
+docker push localhost:5000/trino:354
 ```
 
 ### Install MySQL
@@ -35,4 +38,9 @@ helm install hive-metastore ./2.hive-metastore
 ### Install Hive Server2
 ```
 helm install hive-server2 ./3.hive-server2 
+```
+
+### Install Trino
+```
+helm install trino ./5.trino
 ```

@@ -1,0 +1,58 @@
+server:
+  workers: 1
+  node:
+    environment: test
+    dataDir: /data/trino
+  log:
+    trino:
+      level: INFO
+  config:
+    path: /etc/trino
+    http:
+      port: 8080
+    query:
+      maxMemory: "4GB"
+      maxMemoryPerNode: "1GB"
+  jvm:
+    maxHeapSize: "8G"
+    gcMethod:
+      type: "UseG1GC"
+      g1:
+        heapRegionSize: "32M"
+  catalog:
+    hive:
+      URIs: thrift://hive-metastore:9083
+      username: hive
+      useInstanceCredentials: true
+  prestogateway:
+    gatewayService: trino-gateway
+    gatewayPort: "8888"
+
+fullnameOverride: "trino"
+
+image:
+  registry: localhost:5000
+  imagename: trino
+  tag: 354
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
