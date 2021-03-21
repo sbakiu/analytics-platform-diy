@@ -19,5 +19,5 @@ helm install mysql bitnami/mysql
 ### Create Mysql Secret
 
 ```
-$(kubectl get secret --namespace default mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode)
+k create secret generic mysql-secret --from-literal=ROOT_PASSWORD=$(kubectl get secret --namespace default mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode)
 ```
