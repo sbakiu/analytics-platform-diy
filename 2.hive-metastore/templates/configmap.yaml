@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ template "hive-metastore.fullname" . }}
+    labels:
+        app: {{ template "hive-metastore.name" . }}
+        chart: {{ template "hive-metastore.chart" . }}
+        heritage: {{ .Release.Service }}
+        release: {{ .Release.Name }}
+data:
+{{- toYaml .Values.configs | nindent 4 }}
