@@ -1,0 +1,3 @@
+1. Internal URL (accessible within the cluster) for Hive Server is:
+
+    thrift://{{ template "hiveserver.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.port.webUI }}
