@@ -24,14 +24,11 @@ server:
       URIs: thrift://hive-metastore:9083
       username: hive
       useInstanceCredentials: true
-  prestogateway:
-    gatewayService: trino-gateway
-    gatewayPort: "8888"
 
 fullnameOverride: "trino"
 
 image:
-  registry: localhost:5000
+  registry: trinodb
   imagename: trino
   tag: 354
   pullPolicy: IfNotPresent

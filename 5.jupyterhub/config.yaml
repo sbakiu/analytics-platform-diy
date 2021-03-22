@@ -1,0 +1,24 @@
+proxy:
+  secretToken: "24dc4f530b49a91261209e24102a434e0b97596063a82b18bd1f837f79e2627f"
+
+ingress:
+  enabled: true
+  hosts:
+    - localhost
+
+singleuser:
+  storage:
+    type: none
+#singleuser:
+#  storage:
+#    capacity: 2Gi
+
+hub:
+  config:
+    Authenticator:
+      admin_users:
+        - jovyan1
+        - jovyan2
+    JupyterHub:
+      admin_access: true
+      authenticator_class: 'dummy'

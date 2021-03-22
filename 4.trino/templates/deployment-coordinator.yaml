@@ -47,9 +47,6 @@ spec:
             - name: http-coord
               containerPort: {{ .Values.server.config.http.port }}
               protocol: TCP
-          envFrom:
-          - configMapRef:
-              name: {{ template "trino.gateway" . }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
