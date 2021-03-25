@@ -1,1 +1,1 @@
-minikube start --cpus=2 --memory='8000mb' --disk-size='20000mb' --vm-driver=virtualbox
+minikube start --cpus=4 --memory='12000mb' --disk-size='20000mb' --vm-driver=virtualbox

@@ -9,6 +9,9 @@ ingress:
     - myminikube.info
 
 singleuser:
+  image:
+    name: jupyter/all-spark-notebook
+    imagePullPolicy: IfNotPresents
   storage:
     type: none
 #singleuser:
