@@ -1,16 +1,17 @@
 proxy:
   secretToken: "24dc4f530b49a91261209e24102a434e0b97596063a82b18bd1f837f79e2627f"
   service:
-    type: NodePort
+    type: ClusterIP
 
 ingress:
   enabled: true
   hosts:
-    - myminikube.info
+    - ""
 
 singleuser:
   image:
     name: jupyter/all-spark-notebook
+    tag: latest
     imagePullPolicy: IfNotPresents
   storage:
     type: none
@@ -19,6 +20,7 @@ singleuser:
 #    capacity: 2Gi
 
 hub:
+  baseUrl: /jupyterhub
   config:
     Authenticator:
       admin_users:
