@@ -6,7 +6,7 @@ proxy:
 ingress:
   enabled: true
   hosts:
-    - "myminikube.info"
+    - "myplatform.ai"
 
 singleuser:
   image:

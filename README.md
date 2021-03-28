@@ -58,3 +58,12 @@ helm upgrade --cleanup-on-fail \
   --version=0.11.1 \
   --values 5.jupyterhub/config.yaml
 ```
+
+### Access
+To reach Trino UI and JupyterHub, first we need to modify `/etc/hosts`
+```
+echo "$(minikube ip) trino.myplatform.ai myplatform.ai" | sudo tee -a /etc/hosts 
+```
+
+Trino UI will be available at `trino.myplatform.ai` and JupyterHub will be available at `myplatform.ai/jupyterhub`.
+The inconsistency in the endpoints is forced by the way how ingress-controller works in minikube.

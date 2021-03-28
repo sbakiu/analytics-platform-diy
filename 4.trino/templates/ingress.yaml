@@ -4,7 +4,7 @@ metadata:
   name: trino-ingress
 spec:
   rules:
-    - host: "trino.myminikube.info"
+    - host: "trino.myplatform.ai"
       http:
         paths:
           - path: /
